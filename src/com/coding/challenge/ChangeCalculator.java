@@ -1,46 +1,44 @@
+//while((i>=0) && (prices[i]>=0)){
+//            maxValue = max(maxValue, prices[i]);
+//            maxProfit = max(maxProfit, maxValue-prices[i]);
+//            i--;
 package com.coding.challenge;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class ChangeCalculator {
 
-	public static Map<String, Integer> maxGain(List<Integer> prices) {
-		int maxGain = 0;
-        int maxValue = -1;
-        int i= prices.size() -1 ;
-		Map<Integer, Integer> mp = null;
+	public static Map<String, String> maxProfit(int[] prices) {
+        int maxGain = 0;
+        int maxValue = -1, sellingDay = 0;
+        int i= prices.length -1  ;
+		String sellingDays="";
+		String buyingDays="";
 		
-		Map<String, Integer> result = new HashMap<>();
-//		result.put("Selling Day", 0);
-//		result.put("Buying Day", 0);
-//		result.put("Maximum Gain", 0);
+		Map<String, String> res = new HashMap<>();
 		
-		for(int j=0; j< prices.size(); j++){
-			mp.put(j+1, prices.get(j));
-        }
         
-        while((i>=0) && (mp.get(i) >=0)){
-            
-			if(mp.get(i)> maxValue){
-				maxValue = mp.get(i);
-				result.put("Selling Day", mp.get(i));
+		while((i>=0)){
+            if(prices[i] >= 0 && prices[i] >= maxValue) {
+            	sellingDays = (maxValue == prices[i] ?  sellingDays+"," + String.valueOf(i+1) : String.valueOf(i+1));
+    				maxValue = prices[i];
+            }
+            if(prices[i] >= 0 && (maxValue - prices[i]) >= maxGain){
+            	maxGain = maxValue - prices[i];
+				res.put("Buying Day", String.valueOf(i+1));
+				res.put("Selling Day", sellingDays);
+				res.put("Maximum Gain", String.valueOf(maxGain)); 
 			}
-			if((maxValue - mp.get(i)) > maxGain){
-				maxGain = maxValue - mp.get(i);
-				result.put("Buying Day", mp.get(i));
-				result.put("Maximum Gain", maxGain); 
-			}
-            
 			i--;
             
         }
-        return result;
-	}
+        return res;
+    }
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		int[] stock = {3,1,8,8,38,1,7,55,55,34};
+		System.out.println(maxProfit(stock));
+		
 	}
 
 }
