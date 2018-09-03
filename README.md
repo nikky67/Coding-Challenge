@@ -2,7 +2,7 @@ Please find the detailed description of both the challenges in their respective 
     1) For information, instructions and explanation about coding challenge-1, please visit "CodingChallenge1Description.pdf" file.
     2) For information, instructions and explanation about coding challenge-2, please visit "CodingChallenge2Description.pdf" file.
     
-Each pdf file mainly focusses on 5 different areas-
+Each pdf file mainly focuses on 5 different areas-
     1. Challenge or Question
     2. Solution in Java
     3. Code
