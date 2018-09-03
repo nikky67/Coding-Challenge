@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.coding.challenge;
 
 import java.util.HashMap;
@@ -26,44 +23,44 @@ public class CodingChallenge2 {
 	public static Map<String, Integer> maxProfit(int[] prices) {
 		
 		int maxGain = 0;
-        int maxValue = -1;
-        int i= prices.length -1  ;
+        	int maxValue = -1;
+        	int i= prices.length -1  ;
 		int sellingDay = 0; 
 		int buyingDay = 0;
         
 		Map<String, Integer> res = new HashMap<>();
         
 		while((i>=0)){
-            if(prices[i] >= 0 && prices[i] >= maxValue) {
+            		if(prices[i] >= 0 && prices[i] >= maxValue) {
     				maxValue = prices[i];
     				sellingDay = i+1;
-    		}
+    			}
             
-            if(prices[i] >= 0 && (maxValue - prices[i]) >= maxGain){
-            	maxGain = maxValue - prices[i];
-            	buyingDay = i+1;
+            		if(prices[i] >= 0 && (maxValue - prices[i]) >= maxGain){
+            			maxGain = maxValue - prices[i];
+            			buyingDay = i+1;
 				res.put("Buying Day", buyingDay);
 				res.put("Selling Day", sellingDay);
 				res.put("Maximum Gain", maxGain); 
                 
 			}
 			
-            i--;
+           		i--;
             
-        }
+        	}
         
-        return res;
-    }
+        	return res;
+   	}
 	
 	public static void main(String[] args) {
 		
 		Scanner s = new Scanner(System.in);
-        int[] stock = new int[10];
-        System.out.print("Enter last 10 stock prices");
-        for(int i = 0; i < 10; i++)
-        {
-            stock[i] = s.nextInt();
-        }
+        	int[] stock = new int[10];
+        	System.out.print("Enter last 10 stock prices");
+        	for(int i = 0; i < 10; i++)
+        	{
+            		stock[i] = s.nextInt();
+        	}
 		System.out.println(maxProfit(stock));
 		
 	}
